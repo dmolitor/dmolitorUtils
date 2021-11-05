@@ -5,3 +5,9 @@
 <!-- badges: end -->
 
 Utility functions that I find personally useful.
+
+## Installation
+Get the development version from github with:
+```
+devtools::install_github("dmolitor/dmolitorUtils", auth_token = "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")
+```
