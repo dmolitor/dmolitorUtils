@@ -12,7 +12,7 @@
 #' @return A tibble with calculated model metrics
 #'
 #' @export
-holdout_metrics <- function(truth, predicted, categorical = FALSE) {
+model_metrics <- function(truth, predicted, categorical = FALSE) {
   if (categorical) {
     truth <- as.numeric(as.character(truth))
     if (!all(truth %in% c(0, 1))) stop("Only handles binary case", call. = FALSE)
