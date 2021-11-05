@@ -6,7 +6,7 @@
 \usage{
 rmd_skeleton(
   name = "Untitled",
-  dir = here::here(),
+  dir = here(),
   title = NULL,
   author = "Daniel Molitor",
   abstract = FALSE
@@ -28,4 +28,13 @@ Returns \code{NULL} invisibly. It is called for its side effects
 }
 \description{
 This function creates an RMarkdown skeleton with pretty defaults
+}
+\examples{
+target_dir <- tempdir()
+rmd_skeleton(name = "test",
+             dir = target_dir,
+             title = "Test Document")
+file.exists(paste0(target_dir, "/test.Rmd"))
+file.remove(paste0(target_dir, "/test.Rmd"))
+
 }

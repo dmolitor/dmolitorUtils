@@ -37,6 +37,13 @@ na_ref <- function(var) {
 #' @return A factor with levels in ascending order and a potential user-defined
 #'   reference level.
 #'
+#' @examples
+#' no_ref <- sort_factor(c("e", "f", "z", "d", "a"))
+#' with_ref <- sort_factor(c("e", "f", "z", "d", "a"), base.level = "z")
+#'
+#' levels(no_ref)
+#' levels(with_ref)
+#'
 #' @export
 sort_factor <- function(var, base.level = NULL) {
   if (!is.null(base.level)) {

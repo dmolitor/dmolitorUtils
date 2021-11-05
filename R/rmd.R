@@ -10,9 +10,17 @@
 #'
 #' @return Returns `NULL` invisibly. It is called for its side effects
 #'
+#' @examples
+#' target_dir <- tempdir()
+#' rmd_skeleton(name = "test",
+#'              dir = target_dir,
+#'              title = "Test Document")
+#' file.exists(paste0(target_dir, "/test.Rmd"))
+#' file.remove(paste0(target_dir, "/test.Rmd"))
+#'
 #' @export
 rmd_skeleton <- function(name = "Untitled",
-                         dir = here::here(),
+                         dir = here(),
                          title = NULL,
                          author = "Daniel Molitor",
                          abstract = FALSE) {
@@ -61,7 +69,7 @@ rmd_skeleton <- function(name = "Untitled",
   )
   writeLines(rmd_out, path)
   if (interactive()) {
-    utils::file.edit(path)
+    file.edit(path)
   }
   invisible(NULL)
 }

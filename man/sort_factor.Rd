@@ -19,3 +19,11 @@ reference level.
 Set factor with sorted ascending unique values as levels. Also allows the
 user to explicitly set the reference level.
 }
+\examples{
+no_ref <- sort_factor(c("e", "f", "z", "d", "a"))
+with_ref <- sort_factor(c("e", "f", "z", "d", "a"), base.level = "z")
+
+levels(no_ref)
+levels(with_ref)
+
+}

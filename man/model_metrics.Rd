@@ -22,3 +22,14 @@ A tibble with calculated model metrics
 Calculates a variety of standard model metrics, given the truth and
 predicted values as vectors.
 }
+\examples{
+# Continuous outcome
+mtcarslm <- lm(mpg ~ ., mtcars)
+model_metrics(mtcars$mpg, mtcarslm$fitted.values)
+
+# Binary outcome
+iris$isSetosa <- factor(as.integer(iris$Species == "setosa"))
+irisglm <- glm(isSetosa ~ Sepal.Length, iris, family = "binomial")
+model_metrics(iris$isSetosa, irisglm$fitted.values, TRUE)
+
+}
