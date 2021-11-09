@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/dmolitor/dmolitorUtils/workflows/R-CMD-check/badge.svg)](https://github.com/dmolitor/dmolitorUtils/actions)
-[![Codecov test coverage](https://codecov.io/gh/dmolitor/dmolitorUtils/branch/main/graph/badge.svg)](https://codecov.io/gh/dmolitor/dmolitorUtils?branch=main)
+[![codecov](https://codecov.io/gh/dmolitor/dmolitorUtils/branch/main/graph/badge.svg?token=nxbtAwmmUS)](https://codecov.io/gh/dmolitor/dmolitorUtils)
 <!-- badges: end -->
 
 Utility functions that I find personally useful.
