@@ -3,6 +3,7 @@
 #' Function that sets NA as factor reference level (if any NAs exist).
 #'
 #' @param var Vector to convert to factor
+#' @param ... Additional arguments to pass to [factor()].
 #'
 #' @examples
 #' no_na <- na_ref(1:10)
@@ -14,13 +15,18 @@
 #' @return `var` as a factor with NA as a reference level (if any exist).
 #'
 #' @export
-na_ref <- function(var) {
+na_ref <- function(var, ...) {
+  if (is.factor(var)) {
+    warning("Input is already a factor - returning it unchanged.", call. = FALSE)
+    return(var)
+  }
   var <- factor(var,
                 exclude = NULL,
                 levels = c(
                   NA,
                   unique(var)[!is.na(unique(var))]
-                )
+                ),
+                ...
   )
   var <- droplevels(var)
   return(var)
@@ -33,6 +39,7 @@ na_ref <- function(var) {
 #'
 #' @param var Vector to convert to factor.
 #' @param base.level Reference level as a character string. Optional argument.
+#' @param ... Additional arguments to pass to [factor()]
 #'
 #' @return A factor with levels in ascending order and a potential user-defined
 #'   reference level.
@@ -45,21 +52,29 @@ na_ref <- function(var) {
 #' levels(with_ref)
 #'
 #' @export
-sort_factor <- function(var, base.level = NULL) {
+sort_factor <- function(var, base.level = NULL, ...) {
+  if (is.factor(var)) {
+    warning("Input is already a factor - returning it unchanged.", call. = FALSE)
+    return(var)
+  }
   if (!is.null(base.level)) {
     var <- droplevels(
       factor(var,
-             levels = c(
-               base.level,
-               sort(unique(var))[which(sort(unique(var)) != base.level)]
-             )
+             levels = unique(
+               c(
+                 base.level,
+                 sort(unique(var), na.last = TRUE)
+               )
+             ),
+             ...
       )
     )
     return(var)
   } else {
     var <- droplevels(
       factor(var,
-             levels = sort(unique(var))
+             levels = sort(unique(var), na.last = TRUE),
+             ...
       )
     )
     return(var)

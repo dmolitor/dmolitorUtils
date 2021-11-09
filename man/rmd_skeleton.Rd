@@ -24,17 +24,15 @@ rmd_skeleton(
 \item{abstract}{A logical value - whether to include an Abstract section.}
 }
 \value{
-Returns \code{NULL} invisibly. It is called for its side effects
+Returns the file path invisibly. It is called for its side effects.
 }
 \description{
-This function creates an RMarkdown skeleton with pretty defaults
+This function creates an RMarkdown skeleton with pretty defaults.
 }
 \examples{
 target_dir <- tempdir()
 rmd_skeleton(name = "test",
              dir = target_dir,
              title = "Test Document")
-file.exists(paste0(target_dir, "/test.Rmd"))
-file.remove(paste0(target_dir, "/test.Rmd"))
 
 }

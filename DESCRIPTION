@@ -20,3 +20,8 @@ Imports:
     here,
     utils,
     yardstick
+Suggests: 
+    covr,
+    rstudioapi (>= 0.9.0),
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

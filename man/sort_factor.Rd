@@ -4,12 +4,14 @@
 \alias{sort_factor}
 \title{Create Sorted Factor}
 \usage{
-sort_factor(var, base.level = NULL)
+sort_factor(var, base.level = NULL, ...)
 }
 \arguments{
 \item{var}{Vector to convert to factor.}
 
 \item{base.level}{Reference level as a character string. Optional argument.}
+
+\item{...}{Additional arguments to pass to \code{\link[=factor]{factor()}}}
 }
 \value{
 A factor with levels in ascending order and a potential user-defined

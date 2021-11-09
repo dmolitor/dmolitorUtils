@@ -1,6 +1,6 @@
 #' RMarkdown Skeleton
 #'
-#' This function creates an RMarkdown skeleton with pretty defaults
+#' This function creates an RMarkdown skeleton with pretty defaults.
 #'
 #' @param name A string - the name of the RMarkdown document.
 #' @param dir The target directory.
@@ -8,15 +8,13 @@
 #' @param author The author of the RMarkdown document. Optional argument.
 #' @param abstract A logical value - whether to include an Abstract section.
 #'
-#' @return Returns `NULL` invisibly. It is called for its side effects
+#' @return Returns the file path invisibly. It is called for its side effects.
 #'
 #' @examples
 #' target_dir <- tempdir()
 #' rmd_skeleton(name = "test",
 #'              dir = target_dir,
 #'              title = "Test Document")
-#' file.exists(paste0(target_dir, "/test.Rmd"))
-#' file.remove(paste0(target_dir, "/test.Rmd"))
 #'
 #' @export
 rmd_skeleton <- function(name = "Untitled",
@@ -68,8 +66,10 @@ rmd_skeleton <- function(name = "Untitled",
     collapse = "\n"
   )
   writeLines(rmd_out, path)
-  if (interactive()) {
+  if (requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
+    rstudioapi::navigateToFile(path)
+  } else if (interactive()) {
     file.edit(path)
   }
-  invisible(NULL)
+  invisible(path)
 }

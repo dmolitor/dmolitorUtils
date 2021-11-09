@@ -4,10 +4,12 @@
 \alias{na_ref}
 \title{Create Factor with NA as Reference}
 \usage{
-na_ref(var)
+na_ref(var, ...)
 }
 \arguments{
 \item{var}{Vector to convert to factor}
+
+\item{...}{Additional arguments to pass to \code{\link[=factor]{factor()}}.}
 }
 \value{
 \code{var} as a factor with NA as a reference level (if any exist).
