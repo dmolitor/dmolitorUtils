@@ -1,5 +1,7 @@
 test_that("win_dir correctly translates file paths", {
-  # Tempdir
+  # These are Windows-specific functions
+  skip_on_os(os = c("mac", "linux", "solaris"))
+  # Change dir path to R-style
   target_dir <- gsub("\\\\", "/", tempdir())
   target_dir_bad <- paste0(target_dir, "/bad")
 
