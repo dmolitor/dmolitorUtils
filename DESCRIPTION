@@ -2,11 +2,10 @@ Package: dmolitorUtils
 Title: Personal Utility Functions
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Daniel",
+           family = "Molitor",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "molitdj97@gmail.com")
 Description: A variety of utility functions that I use consistently.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -18,6 +17,7 @@ Depends:
 Imports:
     dplyr,
     here,
+    reticulate,
     utils,
     yardstick
 Suggests: 

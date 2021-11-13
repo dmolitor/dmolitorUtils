@@ -9,7 +9,7 @@
 A variety of utility functions that I use consistently.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Daniel Molitor \email{molitdj97@gmail.com}
 
 }
 \keyword{internal}
