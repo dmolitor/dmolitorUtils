@@ -6,7 +6,7 @@
 [![pkgdown](https://github.com/dmolitor/dmolitorUtils/workflows/pkgdown/badge.svg)](https://github.com/dmolitor/dmolitorUtils/actions)
 <!-- badges: end -->
 
-Utility functions that I find personally useful.
+A collection of utility functions.
 
 ## Installation
 Get the development version from github with:
