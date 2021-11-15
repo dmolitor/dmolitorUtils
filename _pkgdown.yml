@@ -1,0 +1,22 @@
+reference:
+- title: "Handling factor levels"
+  desc: >
+    Functions for common factor operations (probably duplicating
+    some elements of the forcats package).
+- contents:
+  - na_ref
+  - sort_factor
+- title: "Predictive modeling utility functions"
+- contents:
+  - model_metrics
+- title: Python virtual environment utility functions
+  desc: >
+    Functions for working with Python virtual environments with
+    RStudio on Windows.
+- contents:
+  - repl_python_virtualenv
+  - virtualenv_create_win
+  - win_dir
+- title: RMarkdown utilities
+- contents:
+  - rmd_skeleton
