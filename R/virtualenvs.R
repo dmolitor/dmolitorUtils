@@ -1,11 +1,16 @@
 #' Open Python REPL in virtual environment
 #'
-#' Activates a Python virtual environment and launches a Python REPL within that
-#' environment.
+#' \code{repl_python_virtualenv} Activates a Python virtual environment and
+#' launches a Python REPL within that environment.
 #'
 #' @param envdir The virtual environment directory.
 #'
 #' @return `NULL`. Called for its side effects.
+#'
+#' @examples
+#' \dontrun{
+#'   repl_python_virtualenv("~/.venv/foo-bar/")
+#' }
 #'
 #' @export
 repl_python_virtualenv <- function(envdir) {
@@ -22,8 +27,10 @@ repl_python_virtualenv <- function(envdir) {
 
 #' Create Python virtual environment
 #'
-#' Create a new Python virtual environment and install updated versions of pip,
-#' setuptools, and wheel.
+#' \code{virtualenv_create_win} creates a new Python virtual environment and
+#' installs updated versions of pip, setuptools, and wheel in addition to any
+#' other user-provided packages that are available on
+#' \href{https://pypi.org/}{PyPI}.
 #'
 #' @param envdir Directory to create virtual environment within.
 #' @param envname Name of new virtual environment.
@@ -31,6 +38,11 @@ repl_python_virtualenv <- function(envdir) {
 #'   setuptools, and wheel are all installed by default.
 #'
 #' @return `NULL`. Called for side effects.
+#'
+#' @examples
+#' \dontrun{
+#'   virtualenv_create_win("~/.venv/", "foo-bar", c("numpy", "pandas"))
+#' }
 #'
 #' @export
 virtualenv_create_win <- function(envdir, envname, packages = NULL) {

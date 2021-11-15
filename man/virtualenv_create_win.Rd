@@ -18,6 +18,14 @@ setuptools, and wheel are all installed by default.}
 \code{NULL}. Called for side effects.
 }
 \description{
-Create a new Python virtual environment and install updated versions of pip,
-setuptools, and wheel.
+\code{virtualenv_create_win} creates a new Python virtual environment and
+installs updated versions of pip, setuptools, and wheel in addition to any
+other user-provided packages that are available on
+\href{https://pypi.org/}{PyPI}.
+}
+\examples{
+\dontrun{
+  virtualenv_create_win("~/.venv/", "foo-bar", c("numpy", "pandas"))
+}
+
 }

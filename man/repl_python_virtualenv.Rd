@@ -13,6 +13,12 @@ repl_python_virtualenv(envdir)
 \code{NULL}. Called for its side effects.
 }
 \description{
-Activates a Python virtual environment and launches a Python REPL within that
-environment.
+\code{repl_python_virtualenv} Activates a Python virtual environment and
+launches a Python REPL within that environment.
+}
+\examples{
+\dontrun{
+  repl_python_virtualenv("~/.venv/foo-bar/")
+}
+
 }
