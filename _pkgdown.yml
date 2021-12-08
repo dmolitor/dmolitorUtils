@@ -9,6 +9,7 @@ reference:
 - title: "Predictive modeling utility functions"
 - contents:
   - model_metrics
+  - threeway_formula
 - title: Python virtual environment utility functions
   desc: >
     Functions for working with Python virtual environments with
