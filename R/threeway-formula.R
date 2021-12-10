@@ -34,17 +34,20 @@ formula_rhs <- function(form, data = NULL) {
 #'
 #' @param form A `formula` or string that is coercible to one.
 #' @param data An optional `data.frame` from which to extract formula terms.
+#' @param drop.lhs A logical indicating whether or not to drop the respective
+#'   LHS variables from their partner sub-formulas.
 #'
 #' @examples
 #' threeway_formula(z ~ y ~ w + w:x)
 #' threeway_formula("z ~ y ~ w + w:x")
 #' threeway_formula(mpg ~ carb ~ . - wt + gear:carb, data = mtcars)
+#' threeway_formula(mpg ~ carb ~ . - wt + gear:carb, data = mtcars, drop.lhs = FALSE)
 #'
 #' @return A list of length 2, where the components are the sub-formulas of the
 #'   provided threeway formula.
 #'
 #' @export
-threeway_formula <- function(form, data = NULL) {
+threeway_formula <- function(form, data = NULL, drop.lhs = TRUE) {
   stopifnot(length(as.formula(form)) == 3)
   form <- tryCatch(
     as.formula(form),
@@ -58,8 +61,16 @@ threeway_formula <- function(form, data = NULL) {
   y2 <- formula_rhs(lhs_form, data = data)
   if (length(y2) != 1) stop("The formula is formatted incorrectly", call. = FALSE)
   rhs <- as.character(enquote(form[[3]]))[[2]]
-  list(
-    as.formula(paste0(y1, "~", rhs), env = globalenv()),
-    as.formula(paste0(y2, "~", rhs), env = globalenv())
-  )
+  if (drop.lhs) {
+    out <- list(
+      as.formula(paste0(y1, "~", rhs, "-", y2), env = globalenv()),
+      as.formula(paste0(y2, "~", rhs, "-", y1), env = globalenv())
+    )
+  } else {
+    out <- list(
+      as.formula(paste0(y1, "~", rhs), env = globalenv()),
+      as.formula(paste0(y2, "~", rhs), env = globalenv())
+    )
+  }
+  out
 }
