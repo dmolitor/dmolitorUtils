@@ -19,7 +19,7 @@ such a threeway formula into its distinct sub-formulas."><!-- mathjax --><script
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dmolitorUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9003</span>
       </span>
     </div>
 
@@ -48,15 +48,13 @@ such a threeway formula into its distinct sub-formulas.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">threeway_formula</span><span class="op">(</span><span class="va">form</span>, data <span class="op">=</span> <span class="cn">NULL</span>, drop.lhs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">threeway_formula</span><span class="op">(</span><span class="va">form</span>, drop.lhs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>form</dt>
 <dd><p>A <code>formula</code> or string that is coercible to one.</p></dd>
-<dt>data</dt>
-<dd><p>An optional <code>data.frame</code> from which to extract formula terms.</p></dd>
 <dt>drop.lhs</dt>
 <dd><p>A logical indicating whether or not to drop the respective
 LHS variables from their partner sub-formulas.</p></dd>
@@ -83,14 +81,14 @@ provided threeway formula.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> y ~ w + w:x - z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">threeway_formula</span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">carb</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">gear</span><span class="op">:</span><span class="va">carb</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">threeway_formula</span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">carb</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">gear</span><span class="op">:</span><span class="va">carb</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mpg ~ . - wt + gear:carb - carb</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> carb ~ . - wt + gear:carb - mpg</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">threeway_formula</span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">carb</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">gear</span><span class="op">:</span><span class="va">carb</span>, data <span class="op">=</span> <span class="va">mtcars</span>, drop.lhs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">threeway_formula</span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">carb</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">gear</span><span class="op">:</span><span class="va">carb</span>, drop.lhs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mpg ~ . - wt + gear:carb</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
