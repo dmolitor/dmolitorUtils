@@ -33,21 +33,20 @@ formula_rhs <- function(form, data = NULL) {
 #' such a threeway formula into its distinct sub-formulas.
 #'
 #' @param form A `formula` or string that is coercible to one.
-#' @param data An optional `data.frame` from which to extract formula terms.
 #' @param drop.lhs A logical indicating whether or not to drop the respective
 #'   LHS variables from their partner sub-formulas.
 #'
 #' @examples
 #' threeway_formula(z ~ y ~ w + w:x)
 #' threeway_formula("z ~ y ~ w + w:x")
-#' threeway_formula(mpg ~ carb ~ . - wt + gear:carb, data = mtcars)
-#' threeway_formula(mpg ~ carb ~ . - wt + gear:carb, data = mtcars, drop.lhs = FALSE)
+#' threeway_formula(mpg ~ carb ~ . - wt + gear:carb)
+#' threeway_formula(mpg ~ carb ~ . - wt + gear:carb, drop.lhs = FALSE)
 #'
 #' @return A list of length 2, where the components are the sub-formulas of the
 #'   provided threeway formula.
 #'
 #' @export
-threeway_formula <- function(form, data = NULL, drop.lhs = TRUE) {
+threeway_formula <- function(form, drop.lhs = TRUE) {
   stopifnot(length(as.formula(form)) == 3)
   form <- tryCatch(
     as.formula(form),
@@ -58,7 +57,7 @@ threeway_formula <- function(form, data = NULL, drop.lhs = TRUE) {
     error = function(e) stop("Invalid LHS formula", call. = FALSE)
   )
   y1 <- formula_lhs(lhs_form)
-  y2 <- formula_rhs(lhs_form, data = data)
+  y2 <- formula_rhs(lhs_form)
   if (length(y2) != 1) stop("The formula is formatted incorrectly", call. = FALSE)
   rhs <- as.character(enquote(form[[3]]))[[2]]
   if (drop.lhs) {

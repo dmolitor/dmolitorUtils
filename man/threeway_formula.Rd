@@ -4,12 +4,10 @@
 \alias{threeway_formula}
 \title{Convert a threeway formula into distinct sub-formulas}
 \usage{
-threeway_formula(form, data = NULL, drop.lhs = TRUE)
+threeway_formula(form, drop.lhs = TRUE)
 }
 \arguments{
 \item{form}{A \code{formula} or string that is coercible to one.}
-
-\item{data}{An optional \code{data.frame} from which to extract formula terms.}
 
 \item{drop.lhs}{A logical indicating whether or not to drop the respective
 LHS variables from their partner sub-formulas.}
@@ -26,7 +24,7 @@ such a threeway formula into its distinct sub-formulas.
 \examples{
 threeway_formula(z ~ y ~ w + w:x)
 threeway_formula("z ~ y ~ w + w:x")
-threeway_formula(mpg ~ carb ~ . - wt + gear:carb, data = mtcars)
-threeway_formula(mpg ~ carb ~ . - wt + gear:carb, data = mtcars, drop.lhs = FALSE)
+threeway_formula(mpg ~ carb ~ . - wt + gear:carb)
+threeway_formula(mpg ~ carb ~ . - wt + gear:carb, drop.lhs = FALSE)
 
 }
